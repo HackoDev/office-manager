@@ -1,1 +1,1 @@
-web: gunicorn office.wsgi --timeout 90 --log-file -
+web: gunicorn office.wsgi --timeout 90 --pythonpath=office --log-file -
