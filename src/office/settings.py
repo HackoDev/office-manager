@@ -188,6 +188,8 @@ GRAPHENE_DJANGO_EXTRAS = {
 
 STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 
+CORS_ORIGIN_ALLOW_ALL = True
+
 if DEBUG:
     INTERNAL_IPS = ('127.0.0.1', )
     DISABLE_PANELS = []
