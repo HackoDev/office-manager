@@ -43,7 +43,5 @@ class DRFAuthenticatedGraphQLView(GraphQLView):
 
     @method_decorator(check_jwt_decorator)
     def dispatch(self, request, *args, **kwargs):
-        response=  super(DRFAuthenticatedGraphQLView, self).dispatch(
+        return super(DRFAuthenticatedGraphQLView, self).dispatch(
             request, *args, **kwargs)
-        response['Access-Control-Allow-Origin'] = '*'
-        return response
