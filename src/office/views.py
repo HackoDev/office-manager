@@ -2,6 +2,7 @@ from django.conf import settings
 from django.http import JsonResponse
 from django.utils.decorators import method_decorator
 from django.utils.translation import ugettext_lazy as _
+from django.views.decorators.csrf import csrf_exempt
 from graphene_django.views import GraphQLView
 from rest_framework import status
 from rest_framework.exceptions import APIException
@@ -41,6 +42,7 @@ class DRFAuthenticatedGraphQLView(GraphQLView):
     Extended default GraphQLView.
     """
 
+    @method_decorator(csrf_exempt)
     @method_decorator(check_jwt_decorator)
     def dispatch(self, request, *args, **kwargs):
         return super(DRFAuthenticatedGraphQLView, self).dispatch(
